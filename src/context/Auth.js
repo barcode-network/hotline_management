@@ -4,7 +4,7 @@ import app from "../config/firebase.js";
 export const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(undefined);
 
   useEffect(() => {
     app.auth().onAuthStateChanged(setCurrentUser);
@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
         currentUser
       }}
     >
-      {children}
+      {typeof currentUser === 'undefined' ? null : children}
     </AuthContext.Provider>
   );
 };
