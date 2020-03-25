@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import firebase from "../config/firebase";
 
 const Navbar = () => {
@@ -9,9 +10,9 @@ const Navbar = () => {
                     <svg class="h-5 pr-3 fill-current text-purple-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                         <path d="M0 2C0 .9.9 0 2 0h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm14 12h4V2H2v12h4c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2zM5 9l2-2 2 2 4-4 2 2-6 6-4-4z" />
                     </svg>
-                    <a class="text-gray-900 text-base no-underline hover:no-underline font-extrabold text-xl" href="#">
+                    <Link to="/" class="text-gray-900 text-base no-underline hover:no-underline font-extrabold text-xl">
                         Health Hotline
-                    </a>
+                    </Link>
                 </div>
                 <div class="block lg:hidden pr-4">
                     <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-900 hover:border-purple-500 appearance-none focus:outline-none">
@@ -34,10 +35,10 @@ const Navbar = () => {
                     </div>
                     <ul class="list-reset lg:flex justify-end items-center">
                         <li class="mr-3 py-2 lg:py-0">
-                            <a class="inline-block py-2 px-4 text-gray-900 font-bold no-underline" href="/">Home</a>
+                            <Link to="/" class="inline-block py-2 px-4 text-gray-900 font-bold no-underline">Home</Link>
                         </li>
                         <li class="mr-3 py-2 lg:py-0">
-                            <a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:underline py-2 px-4" href="/profile">Profile</a>
+                            <Link to="/profile" class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:underline py-2 px-4">Profile</Link>
                         </li>
                         <li class="mr-3 py-2 lg:py-0">
                             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => firebase.auth().signOut()}>Sign Out</button>
