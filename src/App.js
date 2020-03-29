@@ -8,32 +8,35 @@ import Login from "./screens/Login";
 import SignUp from "./screens/SignUp";
 import ForgotPassword from "./screens/ForgotPassword";
 import Profile from "./screens/Profile";
+
 import { AuthProvider } from "./context/Auth";
+
 import PrivateRoute from "./utils/PrivateRoute";
 
 const App = () => {
   return (
     <AuthProvider>
       <Router>
-        <div>
-          {/* <PrivateRoute component={() => {
+        <Switch>
+
+          {/* <PrivateRoute exact path="/" component={Home} /> */}
+          <Route exact path="/" component={Login} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/forgotpassword" component={ForgotPassword} />
+
+          <PrivateRoute component={() => {
             return (
 
               <Switch>
-                <Route path="/" component={Home} />
+
                 <Route exact path="/home" component={Home} />
                 <Route exact path="/profile" component={Profile} />
               </Switch>
 
             )
-          }} /> */}
-          <PrivateRoute exact path="/" component={Home} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/forgotpassword" component={ForgotPassword} />
+          }} />
 
-        </div>
+        </Switch>
       </Router>
     </AuthProvider>
   );

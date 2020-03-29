@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import firebase from "../config/firebase";
 import Navbar from '../components/Navbar'
-
+import { AuthContext } from '../context/Auth'
 
 const Profile = () => {
-
+    const auth = useContext(AuthContext);
+    // console.log(auth)
+    const { currentUser } = auth
     return (
         <>
             <Navbar />
